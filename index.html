@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet" />
+  <body>
+    <div id="regForm">
+      <div class="logo"><img src="./img/logo.png" alt="Omato Logo" /></div>
+      <!-- One "tab" for each step in the form: -->
+      <div class="tab">
+        <div id="Page1" class="tabBlock">
+          <h1>Welcome!</h1>
+          <p>
+            This is a sample survey design for us to visualise how the welcome
+            page on the survey would look like. The welcome text could be as big
+            as a paragraph like this or it could be just a couple of lines. The
+            design must be minimalist and would focus on the use of great
+            typeface to create beautiful design. Of course, the colour and theme
+            is configurable.
+          </p>
+          <button class="stepButton startBtn" onclick="startSurveyQ()">
+            Let's Start
+          </button>
+        </div>
+        <div id="Page2" class="tabBlock">
+          <p class="actionInst">
+            How likely is it that you would recommend us to your friends and
+            family?
+          </p>
+          <div>
+            <div id="ratingValueBtn" class="btn-group actionButtons">
+              <button onclick="ratingValueBtnClick()" value="0">0</button>
+              <button onclick="ratingValueBtnClick()" value="1">1</button>
+              <button onclick="ratingValueBtnClick()" value="2">2</button>
+              <button onclick="ratingValueBtnClick()" value="3">3</button>
+              <button onclick="ratingValueBtnClick()" value="4">4</button>
+              <button onclick="ratingValueBtnClick()" value="5">5</button>
+              <button onclick="ratingValueBtnClick()" value="6">6</button>
+              <button onclick="ratingValueBtnClick()" value="7">7</button>
+              <button onclick="ratingValueBtnClick()" value="8">8</button>
+              <button onclick="ratingValueBtnClick()" value="9">9</button>
+              <button onclick="ratingValueBtnClick()" value="10">10</button>
+            </div>
+            <div class="ratingLable">
+              <span class="lowestRatingLable">Highly Unlikely</span
+              ><span class="highestRatingLable">Highly Likely</span>
+            </div>
+          </div>
+        </div>
+        <div id="Page3" class="tabBlock">
+          <p class="actionInst">
+            Multiple choice question. The question text will appear above the
+            options. Below are the options.
+          </p>
+          <div id="ck-button">
+            <div class="mcqBtn">
+              <label>
+                <input type="checkbox" value="1" /><span>Option 1</span>
+              </label>
+            </div>
+            <div class="mcqBtn">
+              <label>
+                <input type="checkbox" value="1" /><span>Option 2</span>
+              </label>
+            </div>
+            <div class="mcqBtn">
+              <label>
+                <input type="checkbox" value="1" /><span>Option 3</span>
+              </label>
+            </div>
+            <div class="mcqBtn">
+              <label>
+                <input type="checkbox" value="1" /><span>Option 4</span>
+              </label>
+            </div>
+            <div class="mcqBtn">
+              <label>
+                <input type="checkbox" value="1" /><span>Other option</span>
+              </label>
+            </div>
+            <button onclick="optionSelection()" class="stepButton">Done</button>
+          </div>
+        </div>
+        <div id="Page4" class="tabBlock">
+          <p class="actionInst">
+            That’s great. Please also share any further comments or suggestions
+            you might have.
+          </p>
+          <textarea placeholder="Add comment here"></textarea>
+          <button onclick="commentSubmit()" class="stepButton">Submit</button>
+        </div>
+        <div id="Page5" class="tabBlock">
+          <h1>Thank you!</h1>
+          <p>
+            We are delighted to recieve you feedback. Generally, we like to do a
+            follow up on customer feedback to learn more about our customer’s
+            experience and how we could improve further. You might receive an
+            email to confirm a timing for a call. Hoping we’d get your
+            cooperation.
+          </p>
+
+          <button class="stepButton endBtn" onclick="clearAll()">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footerProgress">
+      <div class="container">
+        <div class="progressBar">
+          <div class="progressLeft">
+            <p><span id="stepNum">0</span>/3 answered.</p>
+            <progress id="myProgress" value="0" max="75"></progress>
+
+            <button id="decreaseLength" onclick="decreaseLength()">
+              <i class="arrowUp"></i>
+            </button>
+            <button id="increaseLength" onclick="increaseLength()">
+              <i class="arrowDown"></i>
+            </button>
+          </div>
+          <img class="footerLogo" src="./img/pob.svg" alt="Omato Logo" />
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="37" viewBox="0 0 148 37">
+    <g fill="none" fill-rule="evenodd">
+        <g stroke-width="2" transform="translate(1 1)">
+            <circle cx="17.5" cy="17.5" r="17.5" stroke="#37BFC9"/>
+            <path stroke="#F0606B" d="M15.35 28.7C22.889 28.7 29 22.589 29 15.05 29 7.511 22.889 1.4 15.35 1.4 7.811 1.4 1.7 7.511 1.7 15.05c0 7.539 6.111 13.65 13.65 13.65z"/>
+        </g>
+        <text fill="#000" font-family="Adequate-ExtraLight, Adequate" font-size="26" font-weight="300" transform="translate(1 1)">
+            <tspan x="41" y="28">Omoto</tspan>
+        </text>
+    </g>
+</svg>
