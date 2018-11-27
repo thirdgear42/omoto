@@ -11,6 +11,7 @@ body {
 .tabBlock {
   display: none;
 }
+
 #Page1 {
   display: block;
   text-align: center;
@@ -27,12 +28,6 @@ body {
 .visible {
   display: block !important;
 }
-
-/* progress[value] {
-  background: #ffffff;
-  border: 1px solid #4a4a4a;
-  border-radius: 3px;
-} */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -90,10 +85,6 @@ body {
     margin: 0.2em;
   }
 
-  /* .actionButtons button {
-    padding: 0.6em 0.8em !important;
-  } */
-
   .tabBlock h1 {
     font-family: "Muli", sans-serif;
     font-size: 28px;
@@ -127,10 +118,6 @@ body {
   .mcqBtn {
     width: 50%;
   }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
