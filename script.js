@@ -1,58 +1,30 @@
-var currentLength = document.getElementById("myProgress").value;
-var page1 = document.getElementById("Page1");
-var page2 = document.getElementById("Page2");
-var page3 = document.getElementById("Page3");
-var page4 = document.getElementById("Page4");
-var page5 = document.getElementById("Page5");
+var pages = document.getElementsByClassName("page");
+var currentPage = 1;
+var maxPages = 5;
 
-function step1Active() {
-  page1.classList.remove("visible");
-  page1.classList.add("hidden");
-  page2.classList.remove("hidden");
-  page2.classList.add("visible");
-}
-function step2Active() {
-  page2.classList.remove("visible");
-  page2.classList.add("hidden");
-  page3.classList.remove("hidden");
-  page3.classList.add("visible");
-}
-function step3Active() {
-  page3.classList.remove("visible");
-  page3.classList.add("hidden");
-  page4.classList.remove("hidden");
-  page4.classList.add("visible");
-}
-function step4Active() {
-  page4.classList.remove("visible");
-  page4.classList.add("hidden");
-  page5.classList.remove("hidden");
-  page5.classList.add("visible");
-}
+// var page1 = document.getElementById("Page1");
+// var page2 = document.getElementById("Page2");
+// var page3 = document.getElementById("Page3");
+// var page4 = document.getElementById("Page4");
+// var page5 = document.getElementById("Page5");
 
-var stepArr = [step1Active, step2Active, step3Active, step4Active];
+function showPage(number) {
+  if (number < 1 || number > maxPages) {
+    return;
+  }
 
-function startSurveyQ() {
-  step1Active();
-  increaseLength();
-}
+  Array.from(pages).forEach(function(e) {
+    e.classList.add("hidden");
+    e.classList.remove("visible");
+  });
 
-function ratingValueBtnClick() {
-  console.log("step 2");
-  step2Active();
-  increaseLength();
-}
+  document.getElementById("Page" + number).classList.remove("hidden");
+  document.getElementById("Page" + number).classList.add("visible");
+  currentPage = number;
 
-function optionSelection() {
-  console.log("step 3");
-  step3Active();
-  increaseLength();
-}
+  setBarLength();
 
-function commentSubmit() {
-  console.log("step 4");
-  step4Active();
-  increaseLength();
+  return false;
 }
 
 function clearAll() {
@@ -60,41 +32,28 @@ function clearAll() {
   location.reload();
 }
 
-function increaseLength() {
-  if (currentLength < 90) {
-    currentLength += 25;
-    document.getElementById("myProgress").value = currentLength;
-    console.log(currentLength, currentLength / 25);
-    stepArr[currentLength / 25 - 1]();
-  } else if (currentLength > 90 && currentLength < 100) {
-    currentLength == 100;
-    document.getElementById("myProgress").value = currentLength;
-  } else {
-    //alert("You reached the maximum length of the progressbar!")
-  }
-  currentStep = currentLength / 25;
-  if (currentStep > 3) {
-    currentStep = 3;
-  }
-  console.log(currentStep);
-  document.getElementById("stepNum").innerHTML = currentStep;
+function goNext() {
+  showPage(currentPage + 1);
 }
 
-function decreaseLength(çurrentLength) {
-  if (currentLength >= 25) {
-    currentLength -= 25;
-    document.getElementById("myProgress").value = currentLength;
-  } else if (currentLength > 0 && currentLength < 25) {
-    currentLength == 0;
-    document.getElementById("myProgress").value == currentLength;
-  } else {
-    //alert("You reached the minimum length of the progressbar!")
-  }
-  currentStep = currentLength / 25;
-  if (currentStep > 3) {
-    currentStep = 0;
-  }
-  console.log(currentStep);
-  document.getElementById("stepNum").innerHTML = currentStep;
-  stepArr[currentStep]();
+function goPrevious() {
+  showPage(currentPage - 1);
 }
+
+function setBarLength() {
+  var length = Math.min((currentPage - 2) * 25, 75);
+  var step = Math.min(currentPage - 2, 3);
+
+  document.getElementById("myProgress").value = length;
+  document.getElementById("stepNum").innerHTML = step;
+}
+
+Array.from(document.querySelectorAll("[data-click-to-step]")).forEach(function(
+  e
+) {
+  var step = parseInt(e.getAttribute("data-click-to-step"));
+  e.onclick = function(event) {
+    event.preventDefault();
+    showPage(step);
+  };
+});

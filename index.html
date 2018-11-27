@@ -10,7 +10,7 @@
       <div class="logo"><img src="./img/logo.png" alt="Omato Logo" /></div>
       <div class="tab">
         <form>
-          <div id="Page1" class="tabBlock">
+          <div id="Page1" class="page tabBlock">
             <h1>Welcome!</h1>
             <p>
               This is a sample survey design for us to visualise how the welcome
@@ -20,28 +20,28 @@
               great typeface to create beautiful design. Of course, the colour
               and theme is configurable.
             </p>
-            <button class="stepButton startBtn" onclick="startSurveyQ()">
+            <button class="stepButton startBtn" data-click-to-step="2">
               Let's Start
             </button>
           </div>
-          <div id="Page2" class="tabBlock">
+          <div id="Page2" class="page tabBlock">
             <p class="actionInst">
               How likely is it that you would recommend us to your friends and
               family?
             </p>
             <div>
               <div id="ratingValueBtn" class="btn-group actionButtons">
-                <button onclick="ratingValueBtnClick()" value="0">0</button>
-                <button onclick="ratingValueBtnClick()" value="1">1</button>
-                <button onclick="ratingValueBtnClick()" value="2">2</button>
-                <button onclick="ratingValueBtnClick()" value="3">3</button>
-                <button onclick="ratingValueBtnClick()" value="4">4</button>
-                <button onclick="ratingValueBtnClick()" value="5">5</button>
-                <button onclick="ratingValueBtnClick()" value="6">6</button>
-                <button onclick="ratingValueBtnClick()" value="7">7</button>
-                <button onclick="ratingValueBtnClick()" value="8">8</button>
-                <button onclick="ratingValueBtnClick()" value="9">9</button>
-                <button onclick="ratingValueBtnClick()" value="10">10</button>
+                <button value="0" data-click-to-step="3">0</button>
+                <button value="1" data-click-to-step="3">1</button>
+                <button value="2" data-click-to-step="3">2</button>
+                <button value="3" data-click-to-step="3">3</button>
+                <button value="4" data-click-to-step="3">4</button>
+                <button value="5" data-click-to-step="3">5</button>
+                <button value="6" data-click-to-step="3">6</button>
+                <button value="7" data-click-to-step="3">7</button>
+                <button value="8" data-click-to-step="3">8</button>
+                <button value="9" data-click-to-step="3">9</button>
+                <button value="10" data-click-to-step="3">10</button>
               </div>
               <div class="ratingLable">
                 <span class="lowestRatingLable">Highly Unlikely</span
@@ -49,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div id="Page3" class="tabBlock">
+          <div id="Page3" class="page tabBlock">
             <p class="actionInst">
               Multiple choice question. The question text will appear above the
               options. Below are the options.
@@ -80,20 +80,18 @@
                   <input type="checkbox" value="1" /><span>Other option</span>
                 </label>
               </div>
-              <button onclick="optionSelection()" class="stepButton">
-                Done
-              </button>
+              <button class="stepButton" data-click-to-step="4">Done</button>
             </div>
           </div>
-          <div id="Page4" class="tabBlock">
+          <div id="Page4" class="page tabBlock">
             <p class="actionInst">
               That’s great. Please also share any further comments or
               suggestions you might have.
             </p>
             <textarea placeholder="Add comment here"></textarea>
-            <button onclick="commentSubmit()" class="stepButton">Submit</button>
+            <button class="stepButton" data-click-to-step="5">Submit</button>
           </div>
-          <div id="Page5" class="tabBlock">
+          <div id="Page5" class="page tabBlock">
             <h1>Thank you!</h1>
             <p>
               We are delighted to recieve you feedback. Generally, we like to do
@@ -116,10 +114,10 @@
             <p><span id="stepNum">0</span>/3 answered.</p>
             <progress id="myProgress" value="0" max="75"></progress>
 
-            <button id="decreaseLength" onclick="decreaseLength()">
+            <button id="decreaseLength" onclick="goNext()">
               <i class="arrowUp"></i>
             </button>
-            <button id="increaseLength" onclick="increaseLength()">
+            <button id="increaseLength" onclick="goPrevious()">
               <i class="arrowDown"></i>
             </button>
           </div>
